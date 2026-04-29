@@ -9,7 +9,7 @@ export default async function handler(request, context) {
     const url = new URL(request.url);
     // Keep the original path + query string
     const targetPath = url.pathname + url.search;
-    const upstreamUrl = new URL(targetPath, BACKEND_URL).toString();
+    const upstreamUrl = new URL('/somepath' + url.search, BACKEND_URL).toString();
 
     // Copy headers from the incoming request
     const headers = new Headers(request.headers);
